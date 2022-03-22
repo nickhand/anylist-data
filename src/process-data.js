@@ -21,7 +21,9 @@ any.login().then(async () => {
   const recipeData = decoded.recipeDataResponse.recipes;
 
   // Get the meal plan data
-  const mealPlanData = decoded.mealPlanningCalendarResponse.events;
+  const mealPlanResponse = decoded.mealPlanningCalendarResponse;
+  const mealPlanEvents = mealPlanResponse.events;
+  const mealPlanLabels = mealPlanResponse.labels;
 
   // Save recipes
   fs.writeFile("data/recipes.json", JSON.stringify(recipeData), function (err) {
@@ -30,12 +32,18 @@ any.login().then(async () => {
     }
   });
 
-  // Save meal plan
-  fs.writeFile("data/meal-plan.json", JSON.stringify(mealPlanData), function (err) {
+  // Save meal plan data
+  fs.writeFile("data/meal-plan.json", JSON.stringify(mealPlanEvents), function (err) {
     if (err) {
       return console.log(err);
     }
   });
+  fs.writeFile("data/meal-plan-labels.json", JSON.stringify(mealPlanLabels), function (err) {
+    if (err) {
+      return console.log(err);
+    }
+  });
+
 
   any.teardown();
 });

@@ -1,0 +1,74 @@
+[
+  {
+    "identifier": "1005ea43563148f1a39f45bb109b4c6c",
+    "logicalTimestamp": {
+      "low": 1686,
+      "high": 0,
+      "unsigned": true
+    },
+    "calendarId": "c02392491b91402b9fc48894f75c8ebd",
+    "hexColor": "FFC532",
+    "name": "Meal Prep ",
+    "sortIndex": 3
+  },
+  {
+    "identifier": "2f5271e3c94e590f81c0020485737532",
+    "logicalTimestamp": {
+      "low": 3,
+      "high": 0,
+      "unsigned": true
+    },
+    "calendarId": "c02392491b91402b9fc48894f75c8ebd",
+    "hexColor": "E5352C",
+    "name": "Dinner",
+    "sortIndex": 2
+  },
+  {
+    "identifier": "314dba8f6d0d5bc393cb45c1cacc05ab",
+    "logicalTimestamp": {
+      "low": 1,
+      "high": 0,
+      "unsigned": true
+    },
+    "calendarId": "c02392491b91402b9fc48894f75c8ebd",
+    "hexColor": "00CC52",
+    "name": "Breakfast",
+    "sortIndex": 0
+  },
+  {
+    "identifier": "35ff756edfe15b2d83b88de6cf255831",
+    "logicalTimestamp": {
+      "low": 2,
+      "high": 0,
+      "unsigned": true
+    },
+    "calendarId": "c02392491b91402b9fc48894f75c8ebd",
+    "hexColor": "FF9335",
+    "name": "Lunch",
+    "sortIndex": 1
+  },
+  {
+    "identifier": "62a0a7c053c545fc9271b1536304d075",
+    "logicalTimestamp": {
+      "low": 1019,
+      "high": 0,
+      "unsigned": true
+    },
+    "calendarId": "c02392491b91402b9fc48894f75c8ebd",
+    "hexColor": "5C5CCC",
+    "name": "Snacks",
+    "sortIndex": 5
+  },
+  {
+    "identifier": "6ab6e3118281413280379d5f7845771b",
+    "logicalTimestamp": {
+      "low": 1024,
+      "high": 0,
+      "unsigned": true
+    },
+    "calendarId": "c02392491b91402b9fc48894f75c8ebd",
+    "hexColor": "187EF2",
+    "name": "Desserts",
+    "sortIndex": 6
+  }
+]
