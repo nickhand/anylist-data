@@ -1,0 +1,43 @@
+name: Daily Update
+
+on:
+  schedule:
+    - cron: "03 02 * * *" # 2:03 AM UTC
+  workflow_dispatch: {}
+  push:
+    paths:
+      - .github/workflows/daily-update.yml
+
+jobs:
+  daily-update:
+    name: Daily Update
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          cache: "npm"
+      - name: Install Dependencies
+        run: |-
+          npm install
+      - name: Pull latest data
+        run: |-
+          node src/process-data.js
+        env:
+          ANYLIST_USERNAME: ${{ secrets.ANYLIST_USERNAME }}
+          ANYLIST_PASSWORD: ${{ secrets.ANYLIST_PASSWORD }}
+      - name: Commit and push if it changed
+        run: |-
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -f data/
+          timestamp=$(date -u)
+          git commit -m "Latest data: ${timestamp}" || exit 0
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
