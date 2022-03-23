@@ -15,10 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
-        with:
-          python-version: "3.9"
-          cache: "pip"
-      - run: pip install python-dotenv
       - name: Send notification
         run: |-
           python python/post-process.py
