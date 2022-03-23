@@ -1,8 +1,9 @@
 import json
 import os
-from datetime import date
+from datetime import datetime
 from pathlib import Path
 
+import pytz
 import requests
 from dotenv import find_dotenv, load_dotenv
 
@@ -31,7 +32,7 @@ def main():
     recipes = load_json_data("recipes.json")
 
     # Trim to today
-    today = date.today().strftime("%Y-%m-%d")
+    today = datetime.now(pytz.timezone("US/Eastern")).strftime("%Y-%m-%d")
     today_meals = list(filter(lambda d: d["date"] == today, meal_plan.values()))
 
     # Trim to dinner only
