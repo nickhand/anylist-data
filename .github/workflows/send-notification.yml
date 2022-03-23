@@ -1,0 +1,26 @@
+name: Send Dinner Notification
+
+on:
+  schedule:
+    - cron: "00 11 * * *" # 11:00 AM UTC
+  workflow_dispatch: {}
+  push:
+    paths:
+      - .github/workflows/send-notification.yml
+
+jobs:
+  daily-update:
+    name: Send Dinner Notification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.9"
+          cache: "pip"
+      - run: pip install python-dotenv
+      - name: Send notification
+        run: |-
+          python python/post-process.py
+        env:
+          SEND_DINNER_WEBHOOK_URL: ${{ secrets.SEND_DINNER_WEBHOOK_URL }}
