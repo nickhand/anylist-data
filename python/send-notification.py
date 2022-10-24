@@ -66,7 +66,7 @@ def main():
         raise ValueError("Please define 'SEND_DINNER_WEBHOOK_URL' environment variable")
 
     # Send the push notification with the message
-    requests.post(webhook_url, params={"message": message})
+    requests.post(webhook_url, data={"message": message})
 
 
 if __name__ == "__main__":
