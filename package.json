@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "anylist": "^0.2.0",
+    "anylist": "^0.8.3",
     "dotenv": "^16.0.0",
     "fs": "^0.0.1-security"
   }
