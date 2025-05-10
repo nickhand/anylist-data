@@ -12,13 +12,13 @@ jobs:
     name: Daily Update
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           persist-credentials: false
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
-          node-version: "17.7.2"
+          node-version: 18
           cache: "npm"
       - name: Install Dependencies
         run: |-
